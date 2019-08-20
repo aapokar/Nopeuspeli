@@ -18,13 +18,22 @@ import javafx.stage.Stage;
  * @author Aapo
  */
 public class Nopeuspeli extends Application {
-    
+
     @Override
     public void start(Stage ikkuna) {
-        BorderPane asettelu = new BorderPane();
-        Scene nakyma = new Scene(asettelu, 200,200);
-        ikkuna.setScene(nakyma);
-        
+        BorderPane alkuruudunAsettelu = new BorderPane();
+        BorderPane peliruudunAsettelu = new BorderPane();
+        Scene aloitusNakyma = new Scene(alkuruudunAsettelu, 200, 200);
+        Scene peliNakyma = new Scene(peliruudunAsettelu, 200, 200);
+        ikkuna.setScene(aloitusNakyma);
+
+        Button aloitusNappi = new Button("Aloita peli");
+        alkuruudunAsettelu.setCenter(aloitusNappi);
+        aloitusNappi.setOnAction((ActionEvent event) -> {
+            System.out.println("Hello");
+            ikkuna.setScene(peliNakyma);
+        });
+
         ikkuna.show();
     }
 
@@ -34,5 +43,5 @@ public class Nopeuspeli extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }
