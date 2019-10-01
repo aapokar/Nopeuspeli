@@ -1,12 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package nopeuspeli;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.geometry.Insets;
@@ -16,14 +15,18 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.scene.layout.HBox;
 
-/**
- *
- * @author Aapo
- */
+
 public class Nopeuspeli extends Application {
+    
+
 
     @Override
     public void start(Stage ikkuna) {
+        
+        // Luodaan peliolio
+        Peli peli = new Peli();
+        
+
         
 //        Luodaan asettelut ja näkymät
         BorderPane alkuruudunAsettelu = new BorderPane();
@@ -39,6 +42,7 @@ public class Nopeuspeli extends Application {
         alkuruudunAsettelu.setCenter(aloitusNappi);
         aloitusNappi.setOnAction((ActionEvent event) -> {
             System.out.println("Hello");
+            //Vaihdetaan aloitusnäkymästä pelinäkymään
             ikkuna.setScene(peliNakyma);
         });
         
@@ -60,8 +64,31 @@ public class Nopeuspeli extends Application {
         nappienAsettelu.getChildren().addAll(nappi0,nappi1,nappi2,nappi3);
         peliruudunAsettelu.setBottom(nappienAsettelu);
         
+
+        
         ikkuna.show();
     }
+    
+            public void keyPressed(KeyEvent e) {
+
+    int key = e.getKeyCode();
+
+    if (key == KeyEvent.VK_1) {
+        System.out.println("Toimii");
+    }
+
+    if (key == KeyEvent.VK_RIGHT) {
+
+    }
+
+    if (key == KeyEvent.VK_UP) {
+
+    }
+
+    if (key == KeyEvent.VK_DOWN) {
+
+    }
+}
 
     /**
      * @param args the command line arguments
